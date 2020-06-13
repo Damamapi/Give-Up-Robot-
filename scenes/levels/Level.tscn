@@ -18,7 +18,7 @@ uniform float saturation = 1.8;
 
 void fragment() {
 	vec3 c = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0).rgb;
-	float offset = sin(TIME * 10.0) / 50.0;
+	float offset = sin(TIME * 10.0) / 10.0;
 	c.rgb = mix(vec3(0.0), c.rgb, brightness + offset);
 	c.rgb = mix(vec3(0.0), c.rgb, contrast + offset);
 	
@@ -33,7 +33,7 @@ shader_param/saturation = 1.8
 
 [node name="Level" type="Node2D"]
 __meta__ = {
-"_edit_vertical_guides_": [ -0.0299344, 3804.17 ]
+"_edit_vertical_guides_": [ -0.0299344, 3805.96 ]
 }
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -83,15 +83,13 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 123.77, 843.772 )
-
-[node name="Sprite" parent="Player" index="0"]
-frame = 1
+position = Vector2( 115.734, 834.155 )
 
 [node name="Camera2D" parent="Player" index="2"]
 limit_left = 0
 limit_top = 0
-limit_right = 3804
+limit_right = 3806
 limit_bottom = 964
+smoothing_enabled = true
 
 [editable path="Player"]

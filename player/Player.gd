@@ -3,7 +3,7 @@ extends KinematicBody2D
 var H: = 144
 var T: = 0.15
 var g: = (2*H) / (T * T)
-var xspeed: = 200
+var xspeed: = 160
 
 var vel : = Vector2.ZERO
 

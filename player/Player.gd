@@ -30,9 +30,9 @@ func manage_animations():
 		else:
 			sprite.play("default")
 	else:
-		if _velocity.y > 0:
+		if _velocity.y < 0:
 			sprite.play("jump")
-		elif _velocity.y < 0:
+		elif _velocity.y > 0:
 			sprite.play("fall")
 	
 	

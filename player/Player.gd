@@ -6,6 +6,13 @@ const FLOOR_NORMAL: = Vector2.UP
 export var speed: = Vector2(400.0, 900.0)
 export var gravity: = 2000.0  
 var _velocity : = Vector2.ZERO
+var facing_dir: = Vector2(1, -1)
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("grapple"):
+		$Hook.shoot(facing_dir)
+	elif Input.is_action_just_released("grapple"):
+		$Hook.release()
 
 func _physics_process(delta: float) -> void:
 	var is_jump_interrupted: = Input.is_action_just_released("jump") and _velocity.y < 0.0
@@ -38,8 +45,10 @@ func manage_animations():
 	
 	if _velocity.x < 0:
 		sprite.flip_h = 1
+		facing_dir = Vector2(-1, -1)
 	elif _velocity.x > 0:
 		sprite.flip_h = 0
+		facing_dir = Vector2(1, -1)
 	
 func play_animation(anim: String):
 	if sprite.playing != anim:
